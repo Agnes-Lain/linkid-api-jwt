@@ -3,9 +3,11 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+This is an API only backend build with Rails & jwt user authentification method
+
 Things you may want to cover:
 
-* Ruby version
+* Ruby version : 3.1.2p20
 
 * System dependencies
 
