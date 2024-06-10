@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :users
+  # resources :users
+  post "users", to: "users#create"
+  put "users", to: "users#update"
   post '/auth/login', to: "authentication#login"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

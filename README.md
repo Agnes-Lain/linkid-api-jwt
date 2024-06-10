@@ -9,6 +9,8 @@ Things you may want to cover:
 
 * Ruby version : 3.1.2p20
 
+* Rails version: 7.1.3.4
+
 * System dependencies
 
 * Configuration

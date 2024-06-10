@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_request, only: [:create]
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :destroy, :update]
 
   # Get /users
   def index
@@ -24,15 +24,18 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/{username}
+  # PUT /users/
   def update
-    unless @user.update(user_params)
+    # binding.pry
+    if @user.update(user_params)
+      render json: @user, status: :ok
+    else
       render json: { errors: @user.errors.full_messages },
             status: :unprocessable_entity
     end
   end
 
-  # delete /users/{username}
+  # delete /users/
   def destroy
     @user.destroy
   end
@@ -40,10 +43,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :username, :email, :password)
+    params.permit(:name, :email, :password)
   end
 
   def set_user
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    @user = @current_user
   end
 end
