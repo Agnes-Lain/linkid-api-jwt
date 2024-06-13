@@ -23,9 +23,6 @@ gem "puma", ">= 5.0"
 # use Json Web Token (JWT) for token based authentication
 gem "jwt"
 
-# for step by step debug use
-gem 'pry-byebug'
-
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"
 
@@ -43,7 +40,12 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
+  # gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
+  # for step by step debug use
+  gem 'pry-byebug', '>=3.10.1'
+  gem 'pry-rails', '>=0.3.9'
+  gem 'rspec-rails', '>=6.1.2'
+  gem 'factory_bot_rails','>=6.4.3'
 end
 
 group :development do

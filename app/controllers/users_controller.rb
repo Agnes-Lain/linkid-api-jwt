@@ -3,10 +3,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :destroy, :update]
 
   # Get /users
-  def index
-    @users = User.all
-    render json: @users, status: :ok
-  end
+  # def index
+  #   @users = User.all
+  #   render json: @users, status: :ok
+  # end
 
   # Get /users/{username}
   def show
@@ -43,7 +43,19 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(
+      :username,
+      :email,
+      :password,
+      :user_status,
+      :family_role,
+      :age,
+      :number_of_kid,
+      :first_name,
+      :given_name,
+      :accepted_terms_of_service,
+      :accepted_news_letters
+      )
   end
 
   def set_user
